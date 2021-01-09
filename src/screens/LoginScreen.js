@@ -46,7 +46,7 @@ class LoginWindow extends Component {
 
         return (
             <View>
-                <Text>
+                <Text testID={"welcome"}>
                     Login
                 </Text>
                 <TextInputComponent
