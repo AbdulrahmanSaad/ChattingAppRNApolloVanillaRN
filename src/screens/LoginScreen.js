@@ -56,6 +56,7 @@ class LoginWindow extends Component {
                     vlaue={email}
                 />
                 <TextInputComponent
+                    testID={"passwordTextInput"}
                     placeholder={'password'}
                     onChange={this.handlePassword}
                     value={password}
