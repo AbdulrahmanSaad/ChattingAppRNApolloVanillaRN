@@ -18,10 +18,12 @@ class TextInputComponent extends Component {
         const {
             placeholder,
             value,
-            style
+            style,
+            testID
         } = this.props;
         return (
             <TextInput
+            testID={testID}
             placeholder={placeholder ? placeholder : ''}
             onChangeText={this.onChange}
             value={value}

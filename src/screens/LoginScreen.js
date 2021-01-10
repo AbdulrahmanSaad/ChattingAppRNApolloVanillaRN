@@ -46,10 +46,11 @@ class LoginWindow extends Component {
 
         return (
             <View>
-                <Text testID={"welcome"}>
+                <Text testID={"login"}>
                     Login
                 </Text>
                 <TextInputComponent
+                    testID={"emailTextInput"}
                     placeholder={'email'}
                     onChange={this.handleEmail}
                     vlaue={email}
