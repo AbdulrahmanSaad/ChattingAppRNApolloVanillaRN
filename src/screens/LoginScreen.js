@@ -71,6 +71,7 @@ class LoginWindow extends Component {
                     {mutate => {
                         return (
                             <ButtonComponent
+                                testID={"loginButton"}
                                 title={'Login'}
                                 onPress={() => this.onPress(mutate)}
                             />

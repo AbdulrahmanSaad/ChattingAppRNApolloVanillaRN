@@ -19,10 +19,12 @@ class ButtonComponent extends Component {
     render (){
         const{
             title,
-            style
+            style,
+            testID
         } = this.props
         return (
             <Button
+            testID={testID}
             title={title ? title : 'Press'}
             onPress={this.onPress}
             style={style ? style : null}

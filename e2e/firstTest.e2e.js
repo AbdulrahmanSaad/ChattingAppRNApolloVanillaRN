@@ -27,4 +27,8 @@ describe('Example', () => {
     await element(by.id('passwordTextInput')).typeText('password');
   });
 
+  it('should tap on the login button and navigate to the chat screen', async () => {
+    await element(by.id('loginButton')).tap();
+  });
+
 });
