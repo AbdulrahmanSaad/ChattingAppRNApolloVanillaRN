@@ -117,6 +117,7 @@ class ChatWindow extends Component {
                     </Query>
                 </View>
                 <TextInputComponent
+                    testID={"messageTextInput"}
                     onChange={this.onChange}
                     style={{
                         width: '100%',
@@ -135,6 +136,7 @@ class ChatWindow extends Component {
                     {
                         mutate => {
                             return <ButtonComponent
+                                testID={"sendButton"}
                                 title={'Send'}
                                 onPress={() => this.onPress(mutate)}
                             />

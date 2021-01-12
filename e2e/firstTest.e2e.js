@@ -31,4 +31,16 @@ describe('Example', () => {
     await element(by.id('loginButton')).tap();
   });
 
+  it('should display a message textinput', async () => {
+    await expect(element(by.id('messageTextInput'))).toBeVisible();
+  });
+
+  it('should write message in message textinput', async () => {
+    await element(by.id('messageTextInput')).typeText('send message test');
+  });
+
+  it('should tap on the send button and send message', async () => {
+    await element(by.id('sendButton')).tap();
+  });
+
 });
