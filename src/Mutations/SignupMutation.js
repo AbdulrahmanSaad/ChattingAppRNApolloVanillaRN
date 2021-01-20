@@ -14,4 +14,4 @@ const SignupMutation = gql`
     }
 `
 
-export default LoginMutation;
+export default SignupMutation;
