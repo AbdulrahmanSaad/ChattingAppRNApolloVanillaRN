@@ -5,11 +5,11 @@ const SignupMutation = gql`
         $email: String!
         $password: String!
         ){
-            createUser(createUserInput: {
+        createUser(createUserInput: {
             email: $email,
             password: $password
         }){
-            _Id
+            _id
         }
     }
 `
