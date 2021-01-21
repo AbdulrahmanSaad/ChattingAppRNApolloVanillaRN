@@ -29,10 +29,8 @@ class SignupWindow extends Component {
             navigate
         } = this.props.navigation
 
-        signup().then((res) => {
-            console.log(res, "RES")
-        }).then(() => {
-            navigate('LoginScreen')
+        signup().then(() => {
+            navigate('Login')
         })
     }
 
