@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import {
     View,
-    Text
+    Text,
+    Modal,
+    StyleSheet
 } from 'react-native'
 import {
     TextInputComponent,
@@ -14,6 +16,14 @@ import {
 import SignupMutation from '../Mutations/SignupMutation';
 
 class SignupWindow extends Component {
+
+    constructor(props){
+        super(props);
+        this.state = {
+            showModal: false,
+            errMsg: ""
+        }
+    }
 
     handleEmail = (email) => {
         this.props.store.setEmail(email)
@@ -35,8 +45,11 @@ class SignupWindow extends Component {
                 error
             } = res.data.createUser
 
-            if (error){
-                alert(error)
+            if (error) {
+                this.setState({
+                    showModal: true,
+                    errMsg: error
+                })
             }
 
             else navigate('Login')
@@ -44,12 +57,27 @@ class SignupWindow extends Component {
         }).catch()
     }
 
-    render (){
+    closeModal = () => {
+        this.setState({
+            showModal: false
+        })
+    }
+
+    render() {
 
         const {
             email,
             password
         } = this.props.store
+
+        const {
+            showModal,
+            errMsg
+        } = this.state
+
+        const {
+            modalText
+        } = styles
 
         return (
             <View>
@@ -68,6 +96,21 @@ class SignupWindow extends Component {
                     onChange={this.handlePassword}
                     value={password}
                 />
+                <Modal
+                    animationType="slide"
+                    transparent={true}
+                    visible={showModal}
+                >
+                    <Text
+                    style={modalText}
+                    >
+                        {errMsg}
+                    </Text>
+                    <ButtonComponent
+                    title={"Close"}
+                    onPress={() => this.closeModal()}
+                    />
+                </Modal>
                 <Mutation
                     variables={{
                         email,
@@ -91,5 +134,14 @@ class SignupWindow extends Component {
     }
 }
 
+const styles = StyleSheet.create({
+    modalText: {
+        textAlign: "center",
+        marginTop: 300
+    },
+    modalButton: {
+        width: 150
+    }
+})
 const SignupScreen = inject("store")(observer(SignupWindow));
-export {SignupScreen};
+export { SignupScreen };
