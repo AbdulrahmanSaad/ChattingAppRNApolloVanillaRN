@@ -31,9 +31,18 @@ class LoginWindow extends Component {
         } = this.props.navigation
 
         login().then((res) => {
-            AsyncStorage.setItem('token', res.data.login.token)
-        }).then(() => {
-            navigate('ChatScreen')
+
+            const {
+                error,
+                token
+            } = res.data.login
+
+            if (error){
+                alert(error)
+            }
+            else AsyncStorage.setItem('token', token).then(() => {
+                navigate('ChatScreen')
+            })
         })
     }
 

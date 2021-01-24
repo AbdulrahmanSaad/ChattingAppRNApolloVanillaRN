@@ -9,6 +9,7 @@ const LoginMutation = gql`
             email: $email,
             password: $password
         }){
+            error
             token
         }
     }
