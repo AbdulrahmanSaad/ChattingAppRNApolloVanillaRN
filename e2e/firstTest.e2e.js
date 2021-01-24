@@ -56,4 +56,10 @@ describe('Example', () => {
   checkTextInput('should write "password" in password textinput', 'passwordTextInput', 'password')
 
   checkButton("should tap on the login button to navigate to the chat screen","loginButton")
+
+  checkTextInput('should write "test chatting" in password textinput', 'messageTextInput', 'test chatting')
+  
+  checkButton("should tap on the send message button to send message","sendButton")
+
+  checkVisisbility("Should display text 'test chatting' in the meesages list", "messagesList", "test chatting")
 });
