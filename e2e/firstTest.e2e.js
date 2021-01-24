@@ -44,4 +44,16 @@ describe('Example', () => {
   checkTextInput('should write "password" in password textinput', 'passwordTextInput', 'password')
 
   checkButton("should tap on the signup button to navigate to the login screen","signupButton")
+
+  checkVisisbility('should display a login text', 'login', 'Login');
+
+  checkTextInput('should write "test@kolp.tst" in email textinput', 'emailTextInput', 'test@kolp.tst')
+
+  checkVisisbility("should display an error msg", "errMsgText", "email not found")
+
+  checkTextInput('should write "test@test.tst" in email textinput', 'emailTextInput', 'test@test.tst')
+
+  checkTextInput('should write "password" in password textinput', 'passwordTextInput', 'password')
+
+  checkButton("should tap on the login button to navigate to the chat screen","loginButton")
 });
