@@ -1,3 +1,5 @@
+import { checkDocument } from "@apollo/client/utilities";
+
 describe('Example', () => {
   beforeAll(async () => {
     await device.launchApp();
@@ -7,44 +9,39 @@ describe('Example', () => {
   //   await device.reloadReactNative();
   // });
 
-  it('should display a login text', async () => {
-    await expect(element(by.id('login'))).toBeVisible();
-  });
+  checkVisisbility = (expectedResult, id, text) => {
+    it(expectedResult, async () => {
+      await expect(element(by.id(id))).toHaveText(text);
+    });
+  }
 
-  it('should display an email textinput', async () => {
-    await expect(element(by.id('emailTextInput'))).toBeVisible();
-  });
+  checkVisisbility('should display a signup text', 'signup', 'Signup');
 
-  it('should write email in email textinput', async () => {
-    await element(by.id('emailTextInput')).typeText('email');
-  });
+  checkTextInput = (expectedResult, id, textToBeTyped) => {
+    it(expectedResult, async () => {
+      await element(by.id(id)).typeText(textToBeTyped);
+    });
+  }
 
-  it('should display a password textinput', async () => {
-    await expect(element(by.id('passwordTextInput'))).toBeVisible();
-  });
+  checkTextInput('should write "test" in email textinput', 'emailTextInput', 'test')
 
-  it('should write password in password textinput', async () => {
-    await element(by.id('passwordTextInput')).typeText('password');
-  });
+  checkButton = (expectedResult, id) => {
+    it(expectedResult, async () => {
+      await element(by.id(id)).tap();
+    });
+  }
 
-  it('should tap on the login button and navigate to the chat screen', async () => {
-    await element(by.id('loginButton')).tap();
-  });
+  checkButton("should tap on the signup button","signupButton")
 
-  it('should display a message textinput', async () => {
-    await expect(element(by.id('messageTextInput'))).toBeVisible();
-  });
+  checkVisisbility('should display an error msg','errMsgText', 'Invalid email form')
 
-  it('should write message in message textinput', async () => {
-    await element(by.id('messageTextInput')).typeText('send message test3');
-  });
+  checkTextInput('should write "test@test.tst" in email textinput', 'emailTextInput', 'test6@test.tst')
 
-  it('should tap on the send button and send message', async () => {
-    await element(by.id('sendButton')).tap();
-  });
+  checkButton("should tap on the signup button","signupButton")
 
-  it('should display a message text', async () => {
-    await expect(element(by.text('send message test3'))).toBeVisible();
-  });
+  checkVisisbility("should display an error msg","errMsgText", "Password is required")
 
+  checkTextInput('should write "password" in password textinput', 'passwordTextInput', 'password')
+
+  checkButton("should tap on the signup button to navigate to the login screen","signupButton")
 });
