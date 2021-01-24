@@ -37,7 +37,6 @@ class ChatWindow extends Component {
         } = this.props.store
 
         return <FlatList
-            testID={"messagesList"}
             data={messages ? messages : null}
             renderItem={
                 ({ item }) => {

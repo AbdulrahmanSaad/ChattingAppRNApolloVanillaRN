@@ -37,7 +37,7 @@ class LoginWindow extends Component {
                 token
             } = res.data.login
 
-            if (error){
+            if (error) {
                 alert(error)
             }
             else AsyncStorage.setItem('token', token).then(() => {
@@ -46,7 +46,7 @@ class LoginWindow extends Component {
         })
     }
 
-    render (){
+    render() {
 
         const {
             email,
@@ -59,13 +59,13 @@ class LoginWindow extends Component {
                     Login
                 </Text>
                 <TextInputComponent
-                    testID={"emailTextInput"}
+                    testID={"loginEmailTextInput"}
                     placeholder={'email'}
                     onChange={this.handleEmail}
                     vlaue={email}
                 />
                 <TextInputComponent
-                    testID={"passwordTextInput"}
+                    testID={"loginPasswordTextInput"}
                     placeholder={'password'}
                     onChange={this.handlePassword}
                     value={password}

@@ -35,7 +35,7 @@ describe('Example', () => {
 
   checkVisisbility('should display an error msg','errMsgText', 'Invalid email form')
 
-  checkTextInput('should write "test@test.tst" in email textinput', 'emailTextInput', 'test6@test.tst')
+  checkTextInput('should write "test@test.tst" in email textinput', 'emailTextInput', 'test@test.tst')
 
   checkButton("should tap on the signup button","signupButton")
 
@@ -47,19 +47,17 @@ describe('Example', () => {
 
   checkVisisbility('should display a login text', 'login', 'Login');
 
-  checkTextInput('should write "test@kolp.tst" in email textinput', 'emailTextInput', 'test@kolp.tst')
-
-  checkVisisbility("should display an error msg", "errMsgText", "email not found")
-
   checkTextInput('should write "test@test.tst" in email textinput', 'emailTextInput', 'test@test.tst')
 
   checkTextInput('should write "password" in password textinput', 'passwordTextInput', 'password')
 
   checkButton("should tap on the login button to navigate to the chat screen","loginButton")
 
-  checkTextInput('should write "test chatting" in password textinput', 'messageTextInput', 'test chatting')
+  checkTextInput('should write "Yodawy" in message textinput', 'messageTextInput', 'Yodawy')
   
   checkButton("should tap on the send message button to send message","sendButton")
+  
+  it("Should display text 'Yodawy' in the meesages list", async () => {
+    await expect(element(by.text("Yodawy"))).toBeVisible()})
 
-  checkVisisbility("Should display text 'test chatting' in the meesages list", "messagesList", "test chatting")
 });

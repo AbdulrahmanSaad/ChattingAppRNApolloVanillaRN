@@ -49,7 +49,10 @@ class SignupWindow extends Component {
                 })
             }
 
-            else navigate('Login')
+            else {
+                navigate('Login')
+                this.props.store.clearPassword()
+            }
 
         }).catch()
     }

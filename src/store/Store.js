@@ -17,6 +17,10 @@ class Store {
         this.password = data
     }
 
+    clearPassword = () => {
+        this.password = ""
+    }
+
     login = async () => {
         await axios.post('http://192.168.1.9:8000/api/login', {
             email: this.email,
@@ -80,7 +84,8 @@ decorate(Store, {
     login: action,
     token: observable,
     addMessage: action,
-    newArr: observable
+    newArr: observable,
+    clearPassword: action
 })
 
 export default new Store()
