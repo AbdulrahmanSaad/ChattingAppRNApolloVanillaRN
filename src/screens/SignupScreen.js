@@ -29,9 +29,19 @@ class SignupWindow extends Component {
             navigate
         } = this.props.navigation
 
-        signup().then(() => {
-            navigate('Login')
-        })
+        signup().then((res) => {
+
+            const {
+                error
+            } = res.data.createUser
+
+            if (error){
+                alert(error)
+            }
+
+            else navigate('Login')
+
+        }).catch()
     }
 
     render (){

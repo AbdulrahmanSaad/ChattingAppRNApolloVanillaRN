@@ -9,6 +9,7 @@ const SignupMutation = gql`
             email: $email,
             password: $password
         }){
+            error
             _id
         }
     }
