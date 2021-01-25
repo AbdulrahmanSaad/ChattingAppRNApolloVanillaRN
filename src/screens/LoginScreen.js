@@ -38,7 +38,8 @@ class LoginWindow extends Component {
             } = res.data.login
 
             if (error) {
-                alert(error)
+                // alert(error)
+                return
             }
             else AsyncStorage.setItem('token', token).then(() => {
                 navigate('ChatScreen')

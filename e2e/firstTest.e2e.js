@@ -15,15 +15,11 @@ describe('Example', () => {
     });
   }
 
-  checkVisisbility('should display a signup text', 'signup', 'Signup');
-
   checkTextInput = (expectedResult, id, textToBeTyped) => {
     it(expectedResult, async () => {
       await element(by.id(id)).typeText(textToBeTyped);
     });
   }
-
-  checkTextInput('should write "test" in email textinput', 'emailTextInput', 'test')
 
   checkButton = (expectedResult, id) => {
     it(expectedResult, async () => {
@@ -31,9 +27,17 @@ describe('Example', () => {
     });
   }
 
+  checkVisisbility('should display a signup text', 'signup', 'Signup');
+
+  checkTextInput('should write "test" in email textinput', 'emailTextInput', 'test')
+
   checkButton("should tap on the signup button","signupButton")
 
   checkVisisbility('should display an error msg','errMsgText', 'Invalid email form')
+
+  it("should clear text", async () => {
+    await element(by.id("emailTextInput")).clearText();
+  });
 
   checkTextInput('should write "test@test.tst" in email textinput', 'emailTextInput', 'test@test.tst')
 
@@ -47,9 +51,9 @@ describe('Example', () => {
 
   checkVisisbility('should display a login text', 'login', 'Login');
 
-  checkTextInput('should write "test@test.tst" in email textinput', 'emailTextInput', 'test@test.tst')
+  checkTextInput('should write "test@test.tst" in email textinput', 'loginEmailTextInput', 'test@test.tst')
 
-  checkTextInput('should write "password" in password textinput', 'passwordTextInput', 'password')
+  checkTextInput('should write "password" in password textinput', 'loginPasswordTextInput', 'password')
 
   checkButton("should tap on the login button to navigate to the chat screen","loginButton")
 
